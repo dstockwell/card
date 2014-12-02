@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="theme" name="theme-color" content="#EF6C00">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="lib/css/card.css">
+</head>
+<body>
+    <style>
+        #target { visibility: hidden; }
+        * {
+          font-family: 'Roboto' !important;
+        }
+        body {
+          background: white;
+        }
+        .demo-container {
+            width: 100%;
+            max-width: 350px;
+            margin: 50px auto;
+        }
+
+        form {
+            margin: 30px;
+        }
+        input {
+            width: 200px;
+            margin: 10px auto;
+            padding: 10px;
+            display: block;
+        }
+
+    </style>
+    <div class="demo-container">
+        <div class="card-wrapper"></div>
+
+        <div class="form-container active">
+            <form action="">
+                <input placeholder="Card number" type="text" name="number" x-autocompletetype="cc-number">
+                <input placeholder="Full name" type="text" name="name" x-autocompletetype="cc-name">
+                <input placeholder="MM/YY" type="text" name="expiry" x-autocompletetype="cc-exp">
+                <input placeholder="CVC" type="text" name="cvc">
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../lib/js/card.js"></script>
+    <script>
+        $('.active form').card({
+            container: $('.card-wrapper')
+        })
+    </script>
+<div id="target"></div>
+    <script>
+target.animate([
+  {color: '#DB4437'},
+  {color: '#4285F4'},
+  {color: '#4285F4'},
+  {color: '#4285F4'},
+  {color: '#0F9D58'},
+  {color: '#0F9D58'},
+  {color: '#0F9D58'},
+//  {color: '#F4B400'},
+//  {color: '#F4B400'},
+//  {color: '#F4B400'},
+  {color: '#DB4437'},
+  {color: '#DB4437'},
+], {
+  duration: 10000,
+  iterations: Infinity
+});
+
+function loop() {
+  theme.content = getComputedStyle(target).color;
+  requestAnimationFrame(loop);
+}
+    
+loop();
+</script>
+</body>
+</html>
