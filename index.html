@@ -58,11 +58,13 @@
 setInterval(function() {
   if (ccn.value != ccn.vvalue) {
     ccn.vvalue = ccn.value;
+    $(ccn).triggerHandler('keypress');
     $(ccn).triggerHandler('change');
     $(ccn).triggerHandler('input');
   }
   if (exp.value != exp.vvalue) {
     exp.vvalue = exp.value;
+    $(exp).triggerHandler('keypress');
     $(exp).triggerHandler('change');
     $(exp).triggerHandler('input');
   }
